@@ -4,37 +4,34 @@ import axios from "axios";
 
 const WebcamCapture = () => {
   const webcamRef = useRef(null);
-  const [emotion, setEmotion] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [emotion, setEmotion] = useState("");
+  const [song, setSong] = useState("");
 
   const capture = async () => {
-    if (!webcamRef.current) return;
     const imageSrc = webcamRef.current.getScreenshot();
-    setLoading(true);
-    try {
-      const response = await axios.post("http://localhost:5000/detect-emotion", { image: imageSrc });
-      setEmotion(response.data.emotion);
-    } catch (error) {
-      console.error("Error detecting emotion:", error);
-      setEmotion("Error detecting emotion");
-    } finally {
-      setLoading(false);
-    }
+    const res = await axios.post('http://localhost:5000/emotion', { image: imageSrc });
+    setEmotion(res.data.emotion);
+    playSong(res.data.emotion);
+  };
+
+  const playSong = (emotion) => {
+    const playlist = {
+      happy: "happy_song.mp3",
+      sad: "sad_song.mp3",
+      angry: "angry_song.mp3",
+      neutral: "calm_song.mp3"
+    };
+    setSong(playlist[emotion] || "default.mp3");
+    console.log(playlist[emotion])
   };
 
   return (
     <div>
-      <Webcam
-        audio={false}
-        ref={webcamRef}
-        screenshotFormat="image/jpeg"
-        width={320}
-        height={240}
-      />
-      <button onClick={capture} disabled={loading}>
-        {loading ? "Detecting..." : "Detect Mood"}
-      </button>
-      {emotion && <p>Detected Emotion: {emotion}</p>}
+      <Webcam ref={webcamRef} screenshotFormat="image/jpeg" />
+      <button onClick={capture}>Detect Mood</button>
+      {emotion && <h3>Detected Emotion: {emotion}</h3>}
+      {song && <audio src={`/songs/${song}`} autoPlay controls />}
+
     </div>
   );
 };
