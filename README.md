@@ -1,29 +1,64 @@
-# ChitraGhana 🎵😄
+# 🎵 Chitraghana - Emotion-Based Music Recommender 🎭
 
-ChitraGhana is an innovative music player that detects your facial expression in real-time and plays music matching your mood!  
+Chitraghana is a facial expression-based music recommendation web app that detects the user's emotion in real-time using their webcam and plays an appropriate locally stored song. The emotion detection is powered by a trained CNN model on the FER2013 dataset.
 
-Built with Python (DeepFace) for EMOTION RECOGNITION and React.js for a smooth WEB INTERFACE.
+## 📸 Features
+
+- Real-time webcam capture using React and `react-webcam`.
+- Emotion detection with a TensorFlow model trained on FER dataset.
+- Flask backend for model inference.
+- Emotion-to-song mapping based on local MP3 files.
+- Auto-play emotion-based songs via HTML5 audio.
+---
+
+## 🚀 Live Demo
+
+Coming soon or run locally.
 
 ---
 
-## Features
+## 🧠 Emotion Detection Model
 
-- Real-time facial expression detection using webcam
-- Emotion classification using DeepFace pre-trained models
-- Dynamic music playback based on detected emotion (happy, sad, angry, neutral, etc.)
-- Modular architecture: Python backend API + React frontend UI
-- Easy to extend with custom playlists or Spotify integration
+- 📊 **Dataset**: [FER2013](https://www.kaggle.com/datasets/msambare/fer2013)
+- 🧠 **Architecture**: CNN with Conv2D, MaxPooling, and Dense layers
+- 🎯 **Output Classes**:
+  - Angry
+  - Disgust
+  - Fear
+  - Happy
+  - Sad
+  - Surprise
+  - Neutral
 
----
 
-## Tech Stack
-
-| Component          | Technology             |
-|--------------------|-----------------------|
-| Backend            | Python, Flask, DeepFace |
-| Frontend           | React.js, Tailwind CSS  |
-| Emotion Detection  | DeepFace library        |
-| Music Playback     | HTML5 Audio / Custom   |
-| Webcam Access      | React `getUserMedia` API |
+Model is stored in `backend/model/emotion_model.h5`.
 
 ---
+## 📦 Dependencies
+**Frontend**:
+
+React.js
+
+Axios
+
+react-webcam
+
+**Backend**:
+
+Flask
+
+Flask-CORS
+
+TensorFlow
+
+NumPy
+
+OpenCV
+
+## Authors
+
+[Neha Waddi](https://www.linkedin.com/in/neha-waddi-a4280625b/)
+
+[Kusuma Pothuraju](https://www.linkedin.com/in/kusuma-akshya-pothuraju-a81a58268/)
+
+
