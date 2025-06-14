@@ -34,7 +34,7 @@ def fetch_songs_by_emotion(emotion):
                 songs.append({
                     "title": filename,
                     "artist": "Local Artist",
-                    "url": f"/songs/{emotion}/{filename}"  # For frontend playback
+                    "url": f"/songs/{emotion}/{filename}" 
                 })
 
         return songs
@@ -46,7 +46,7 @@ def preprocess_image(img):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     face = cv2.resize(gray, (48, 48))
     face = face.astype('float32') / 255.0
-    face = np.expand_dims(face, axis=-1)  # (48,48,1)
+    face = np.expand_dims(face, axis=-1) 
     return face
 
 @app.route('/detect', methods=['POST'])
@@ -58,14 +58,12 @@ def detect_emotion():
         img_np = np.frombuffer(image_bytes, np.uint8)
         img = cv2.imdecode(img_np, cv2.IMREAD_COLOR)
 
-        # Predict emotion
         processed_face = preprocess_image(img)
         prediction = model.predict(np.array([processed_face]))[0]
         predicted_label = emotion_map[np.argmax(prediction)]
 
         print("🎭 Predicted Emotion:", predicted_label)
 
-        # Fetch songs for that emotion
         songs = fetch_songs_by_emotion(predicted_label)
 
         return jsonify({
