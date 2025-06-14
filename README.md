@@ -13,17 +13,23 @@ Chitraghana is a facial expression-based music recommendation web app that detec
 
 ## 🧠 What I Learned:
 
--Implementing computer vision (OpenCV) and deep learning models in real-world apps
--Building and connecting REST APIs between a Flask backend and a React frontend
--Processing webcam image data in base64 format
--Designing clean, responsive UIs using Tailwind CSS
--Handling state and user interaction in React
+-Implementing computer vision (OpenCV) and deep learning models in real-world apps.
+
+-Building and connecting REST APIs between a Flask backend and a React frontend.
+
+-Processing webcam image data in base64 format.
+
+-Designing clean, responsive UIs using Tailwind CSS.
+
+-Handling state and user interaction in React.
 
 
 ## 🚀 Live Demo
 
 You can check it out at-https://chitra-ghana.vercel.app/
+
 or 
+
 deploy locally
 
 ---
@@ -71,5 +77,3 @@ OpenCV
 [Neha Waddi](https://www.linkedin.com/in/neha-waddi-a4280625b/)
 
 [Kusuma Pothuraju](https://www.linkedin.com/in/kusuma-akshya-pothuraju-a81a58268/)
-
-
