@@ -1,44 +1,38 @@
 # 🎵 Chitraghana - Emotion-Based Music Recommender 🎭
 
-Chitraghana is a facial expression-based music recommendation web app that detects the user's emotion in real-time using their webcam and plays an appropriate locally stored song. The emotion detection is powered by a trained CNN model on the FER2013 dataset.
-
-## 📸 Features
-
-- Real-time webcam capture using React and `react-webcam`.
-- Emotion detection with a TensorFlow model trained on FER dataset.
-- Flask backend for model inference.
-- Emotion-to-song mapping based on local MP3 files.
-- Auto-play emotion-based songs via HTML5 audio.
----
-
-## 🧠 What I Learned:
-
--Implementing computer vision (OpenCV) and deep learning models in real-world apps.
-
--Building and connecting REST APIs between a Flask backend and a React frontend.
-
--Processing webcam image data in base64 format.
-
--Designing clean, responsive UIs using Tailwind CSS.
-
--Handling state and user interaction in React.
-
-
-## 🚀 Live Demo
-
-You can check it out at-https://chitra-ghana.vercel.app/
-
-or 
-
-deploy locally
+Chitraghana is a facial expression-based music recommendation web app that detects the user's emotion in real-time using their webcam and plays an appropriate song. The emotion detection is powered by a CNN model trained on the FER2013 dataset, and the songs are selected based on your mood.
 
 ---
 
-## 🧠 Emotion Detection Model
+## Features
 
-- 📊 **Dataset**: [FER2013](https://www.kaggle.com/datasets/msambare/fer2013)
-- 🧠 **Architecture**: CNN with Conv2D, MaxPooling, and Dense layers
-- 🎯 **Output Classes**:
+-  Real-time webcam capture using React and `react-webcam`
+-  Emotion detection with a TensorFlow CNN model
+-  Flask backend for inference with REST API support
+-  Emotion-to-song mapping with local MP3 files
+-  Auto-play songs based on detected mood
+-  Beautiful, responsive UI built with Tailwind CSS
+-  Next/Previous buttons to switch songs in the same emotion category
+-  Suggestions listed below the main player
+
+---
+
+## What I Learned
+
+- Implementing computer vision (OpenCV) and deep learning models in real-world apps
+- Connecting React frontend with a Flask backend via REST API
+-  Capturing and sending webcam frames as Base64 image data
+-  Designing a robust CNN model for emotion classification
+-  Crafting interactive and clean UI using Tailwind CSS
+-  Managing audio playback and emotion-driven interactions in the browser
+
+---
+
+## Emotion Detection Model
+
+- **Dataset**: [FER2013](https://www.kaggle.com/datasets/msambare/fer2013)
+- **Model Architecture**: Custom CNN with Conv2D, MaxPooling, Dropout, and Dense layers
+- **Classes Detected**:
   - Angry
   - Disgust
   - Fear
@@ -46,31 +40,54 @@ deploy locally
   - Sad
   - Surprise
   - Neutral
-
-
-Model is stored in `backend/model/emotion_model.h5`.
+- **Model Path**: `backend/model/emotion_model.h5`
 
 ---
-## 📦 Dependencies
-**Frontend**:
 
-React.js
+## Local Setup Guide (Frontend + Backend)
 
-Axios
+###  Prerequisites
 
-react-webcam
+- Python 3.9 or 3.10  
+- Node.js (v16 or v18)  
+- pip  
 
-**Backend**:
+---
 
-Flask
+###  Backend Setup (Flask + TensorFlow)
 
-Flask-CORS
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+python app.py
+```
+-Your Flask API will start on http://localhost:5000
 
-TensorFlow
+-Ensure emotion_model.h5 is present in the model/ folder.
 
-NumPy
+###  Frontend Setup (React + Webcam)
 
-OpenCV
+```bash
+cd frontend
+npm install
+npm start
+```
+Your React app will run on http://localhost:3000.
+
+### Key Dependencies
+Frontend
+- React
+- Axios
+- react-webcam
+- Tailwind CSS
+Backend
+- Flask
+- Flask-CORS
+- TensorFlow 2.18
+- OpenCV
+- NumPy
 
 ## Authors
 
