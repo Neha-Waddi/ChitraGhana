@@ -11,9 +11,20 @@ Chitraghana is a facial expression-based music recommendation web app that detec
 - Auto-play emotion-based songs via HTML5 audio.
 ---
 
+## 🧠 What I Learned:
+
+-Implementing computer vision (OpenCV) and deep learning models in real-world apps
+-Building and connecting REST APIs between a Flask backend and a React frontend
+-Processing webcam image data in base64 format
+-Designing clean, responsive UIs using Tailwind CSS
+-Handling state and user interaction in React
+
+
 ## 🚀 Live Demo
 
-Coming soon or run locally.
+You can check it out at-https://chitra-ghana.vercel.app/
+or 
+deploy locally
 
 ---
 
