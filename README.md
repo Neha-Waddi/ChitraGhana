@@ -82,6 +82,7 @@ Frontend
 - Axios
 - react-webcam
 - Tailwind CSS
+
 Backend
 - Flask
 - Flask-CORS
